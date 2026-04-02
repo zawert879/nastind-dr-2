@@ -6,7 +6,7 @@
 
 ## Текущий фокус
 
-Фаза 1 завершена. Следующий шаг — Фаза 2: главная страница (HeroBanner + ArticleCard + TagFilter).
+Фаза 2а завершена. Следующий шаг — Фаза 2б: страница статьи (ArticleContent + CommentSection + RelatedArticles).
 
 ---
 
@@ -35,14 +35,19 @@
 - [x] Unit-тест `src/lib/utils/parseContent.test.ts` (7 тестов, все прошли)
 
 ### Фаза 2 — Основные фичи
-- [ ] Главная страница: hero-обложка выпуска (`src/routes/+page.svelte`)
-- [ ] Компонент `ArticleCard.svelte` — карточка статьи
-- [ ] Компонент `HeroBanner.svelte` — featured-статья на обложке
-- [ ] Фильтр по тегам (`TagFilter.svelte` + `filteredArticlesStore`)
-- [ ] Страница статьи (`src/routes/articles/[slug]/+page.svelte`)
-- [ ] Компонент `ArticleContent.svelte` — рендер MD
-- [ ] Компонент `CommentSection.svelte` — статичные комментарии
-- [ ] Секция `RelatedArticles.svelte` — похожие статьи (рандом)
+
+#### 2а — Главная страница ✅
+- [x] `src/lib/stores/filteredArticlesStore.ts` — `selectedTag` + `filteredArticles` (derived)
+- [x] `src/lib/components/ArticleCard.svelte` — glassmorphism-карточка (обложка, заголовок, теги, дата)
+- [x] `src/lib/components/HeroBanner.svelte` — hero featured-статьи (фон, оверлей, CTA)
+- [x] `src/lib/components/TagFilter.svelte` — фильтр-чипы по тегам, синхронизация с URL `?tag=`
+- [x] `src/routes/+page.svelte` — сборка: HeroBanner + TagFilter + сетка ArticleCard
+
+#### 2б — Страница статьи
+- [ ] `src/routes/articles/[slug]/+page.svelte`
+- [ ] `src/lib/components/ArticleContent.svelte` — рендер MD-контента
+- [ ] `src/lib/components/CommentSection.svelte` — статичные комментарии
+- [ ] `src/lib/components/RelatedArticles.svelte` — похожие статьи (рандом)
 
 ### Фаза 3 — Полировка
 - [ ] Обработка ошибок и пустых состояний
@@ -54,18 +59,26 @@
 
 ## Текущий спринт
 
-**Спринт**: 2  
-**Цель**: Контент-слой — типы, парсинг MD, store статей  
+**Спринт**: 4  
+**Цель**: Фаза 2б — Страница статьи (ArticleContent + CommentSection + RelatedArticles)  
 **Дедлайн**: —
 
 | Задача | Статус | Заметки |
 |---|---|---|
-| TypeScript типы (Article, ArticleMeta, Comment) | [x] | `src/lib/types/` |
-| Установить gray-matter + marked | [x] | npm install |
-| Тестовые MD-статьи (3 шт. + 1 comment) | [x] | `src/content/` |
-| `parseContent.ts` | [x] | frontmatter + HTML |
-| `articlesStore.ts` | [x] | `import.meta.glob` |
-| Unit-тест `parseContent.test.ts` | [x] | 7 тестов ✓ |
+| `src/routes/articles/[slug]/+page.svelte` | [ ] | страница статьи |
+| `ArticleContent.svelte` — рендер MD-контента | [ ] | `src/lib/components/` |
+| `CommentSection.svelte` — статичные комментарии | [ ] | `src/lib/components/` |
+| `RelatedArticles.svelte` — похожие статьи (рандом) | [ ] | `src/lib/components/` |
+
+### Спринт 3 — завершён ✅
+
+| Задача | Статус | Заметки |
+|---|---|---|
+| `filteredArticlesStore.ts` — selectedTag + filteredArticles | [x] | `src/lib/stores/` |
+| `ArticleCard.svelte` — glassmorphism-карточка | [x] | `src/lib/components/` |
+| `HeroBanner.svelte` — hero featured-статьи | [x] | `src/lib/components/` |
+| `TagFilter.svelte` — фильтр-чипы, синхронизация с URL | [x] | `src/lib/components/` |
+| `+page.svelte` — сборка главной страницы | [x] | `src/routes/` |
 
 ---
 

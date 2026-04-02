@@ -14,6 +14,37 @@
 
 ---
 
+### 2026-04-03 — BUG-001: Замена gray-matter на front-matter
+
+- **Что сделано**: `gray-matter` заменена на `front-matter@4.0.2` (browser-compatible, нет зависимости от Node.js Buffer)
+- **Файлы**:
+  - `package.json` — зависимость обновлена
+  - `src/lib/utils/parseContent.ts` — API: `fm(raw)` → `{ attributes, body }`
+- **Заметки**: Закрывает BUG-001. gray-matter использует Node.js Buffer API, недоступный в браузере при статической сборке.
+
+---
+
+### 2026-04-03 — BUG-002: SVG-заглушки обложек и аватаров
+
+- **Что сделано**: Созданы placeholder SVG в стиле Dark Editorial (градиенты hot-pink/purple/gold) для 3 обложек и 3 аватаров. Frontmatter статей обновлён: `.jpg` → `.svg`
+- **Файлы**:
+  - `static/images/covers/marina-style.svg`, `kate-career.svg`, `julia-travel.svg`
+  - `static/images/avatars/sonya.svg`, `kate.svg`, `julia.svg`
+  - `src/content/articles/*.md` — cover/avatar пути обновлены
+- **Заметки**: Закрывает BUG-002.
+
+---
+
+### 2026-04-03 — /commit skill + gitignore
+
+- **Что сделано**: Добавлен скилл `.claude/skills/commit/SKILL.md` для создания осмысленных git-коммитов. `.gitignore` дополнен `.playwright-mcp` и `screenshots/`
+- **Файлы**:
+  - `.claude/skills/commit/SKILL.md`
+  - `.claude/settings.local.json` — скилл зарегистрирован
+  - `.gitignore`
+
+---
+
 ### 2026-04-03 — Фаза 1: Контент-слой
 
 - **Что сделано**: TypeScript-типы, MD-парсер, тестовые статьи, parseContent, articlesStore, unit-тесты
