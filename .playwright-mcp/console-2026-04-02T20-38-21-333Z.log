@@ -1,0 +1,5 @@
+[      13ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/articles/nonexistent-article:0
+[      64ms] [WARNING] The next HMR update will cause the page to reload @ http://localhost:5173/node_modules/@sveltejs/kit/src/runtime/client/client.js?v=3ffb897f:3298
+[      64ms] [ERROR] SvelteKitError: Not found: /articles/nonexistent-article
+    at navigate (http://localhost:5173/node_modules/@sveltejs/kit/src/runtime/client/client.js?v=3ffb897f:1674:24)
+    at async Module.start (http://localhost:5173/node_modules/@sveltejs/kit/src/runtime/client/client.js?v=3ffb897f:373:3) @ http://localhost:5173/@fs/D:/MYWORK/test-projects/.svelte-kit/generated/client/app.js:15

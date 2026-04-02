@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark Editorial — CSS Variables */
+:root {
+	/* Backgrounds */
+	--color-bg: #0a0a0a;
+	--color-surface: rgba(255, 255, 255, 0.05);
+	--color-surface-hover: rgba(255, 255, 255, 0.08);
+	--color-surface-border: rgba(255, 255, 255, 0.1);
+
+	/* Text */
+	--color-text: #f5f5f5;
+	--color-text-muted: rgba(245, 245, 245, 0.55);
+
+	/* Accent palette */
+	--color-hot-pink: #ff006e;
+	--color-purple: #8338ec;
+	--color-gold: #ffd700;
+
+	/* Gradients */
+	--gradient-accent: linear-gradient(135deg, #ff006e 0%, #8338ec 50%, #ffd700 100%);
+	--gradient-accent-h: linear-gradient(90deg, #ff006e 0%, #8338ec 50%, #ffd700 100%);
+	--gradient-accent-v: linear-gradient(180deg, #ff006e 0%, #8338ec 50%, #ffd700 100%);
+	--gradient-overlay: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, transparent 60%);
+
+	/* Typography */
+	--font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+	--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Base */
+@layer base {
+	html {
+		@apply bg-[#0a0a0a] text-[#f5f5f5] antialiased;
+		font-family: var(--font-sans);
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply min-h-screen;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: var(--font-serif);
+	}
+}
+
+/* Components */
+@layer components {
+	/* Gradient text */
+	.gradient-text {
+		background: var(--gradient-accent-h);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	/* Gradient border (1px) */
+	.gradient-border {
+		position: relative;
+	}
+	.gradient-border::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		padding: 1px;
+		background: var(--gradient-accent);
+		-webkit-mask:
+			linear-gradient(#fff 0 0) content-box,
+			linear-gradient(#fff 0 0);
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
+		pointer-events: none;
+	}
+
+	/* Glassmorphism card */
+	.glass-card {
+		background: var(--color-surface);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border: 1px solid var(--color-surface-border);
+		border-radius: 12px;
+	}
+	.glass-card:hover {
+		background: var(--color-surface-hover);
+	}
+
+	/* Thin accent line */
+	.accent-line {
+		height: 2px;
+		background: var(--gradient-accent-h);
+	}
+}

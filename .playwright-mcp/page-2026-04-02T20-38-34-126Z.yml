@@ -1,0 +1,25 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e6]:
+        - link "Модные Сучки Глянцевый журнал" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8]: Модные Сучки
+          - generic [ref=e9]: Глянцевый журнал
+        - navigation [ref=e10]:
+          - link "Выпуски" [ref=e11] [cursor=pointer]:
+            - /url: /
+          - link "Стиль" [ref=e12] [cursor=pointer]:
+            - /url: /?tag=Стиль
+          - link "Карьера" [ref=e13] [cursor=pointer]:
+            - /url: /?tag=Карьера
+    - main [ref=e15]:
+      - generic [ref=e27]:
+        - paragraph [ref=e28]: Скоро
+        - heading "Модные Сучки" [level=1] [ref=e29]
+        - paragraph [ref=e30]: Готовим первый выпуск...
+    - contentinfo [ref=e21]:
+      - generic [ref=e23]:
+        - generic [ref=e24]: Модные Сучки
+        - paragraph [ref=e25]: © 2026 · Глянцевый журнал для избранных
+  - generic [ref=e26]: Модные Сучки
