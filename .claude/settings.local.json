@@ -13,7 +13,13 @@
       "mcp__playwright__browser_resize",
       "mcp__playwright__browser_run_code",
       "Bash(npm list:*)",
-      "Bash(gh pr:*)"
+      "Bash(gh pr:*)",
+      "mcp__playwright__browser_close",
+      "mcp__playwright__browser_evaluate",
+      "Bash(npx svelte-check:*)",
+      "Bash(npx vitest:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)"
     ]
   }
 }
