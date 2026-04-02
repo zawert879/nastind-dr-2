@@ -1,30 +1,30 @@
-import matter from 'gray-matter';
+import fm from 'front-matter';
 import { marked } from 'marked';
 import type { Article } from '$lib/types/Article';
 import type { CommentFile } from '$lib/types/Comment';
 
 export function parseArticle(raw: string, slug: string): Article {
-	const { data, content } = matter(raw);
+	const { attributes, body } = fm<Record<string, unknown>>(raw);
 
-	const html = marked.parse(content);
+	const html = marked.parse(body);
 
 	return {
 		slug,
-		title: String(data.title ?? ''),
-		subject: String(data.subject ?? ''),
-		tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
-		cover: String(data.cover ?? ''),
-		featured: Boolean(data.featured),
-		date: String(data.date ?? ''),
+		title: String(attributes.title ?? ''),
+		subject: String(attributes.subject ?? ''),
+		tags: Array.isArray(attributes.tags) ? (attributes.tags as string[]) : [],
+		cover: String(attributes.cover ?? ''),
+		featured: Boolean(attributes.featured),
+		date: String(attributes.date ?? ''),
 		content: typeof html === 'string' ? html : '',
 	};
 }
 
 export function parseComments(raw: string): CommentFile {
-	const { data } = matter(raw);
+	const { attributes } = fm<Record<string, unknown>>(raw);
 
 	return {
-		article: String(data.article ?? ''),
-		comments: Array.isArray(data.comments) ? data.comments : [],
+		article: String(attributes.article ?? ''),
+		comments: Array.isArray(attributes.comments) ? attributes.comments : [],
 	};
 }
