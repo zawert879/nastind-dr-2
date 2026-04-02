@@ -2,7 +2,7 @@
 title: "Королева деталей: как Марина превратила шопинг в искусство"
 subject: "Марина"
 tags: ["Стиль", "Шопинг"]
-cover: "/images/covers/marina-style.jpg"
+cover: "/images/covers/marina-style.svg"
 featured: true
 date: "2026-04-01"
 ---

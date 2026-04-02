@@ -2,7 +2,7 @@
 title: "Юля уехала в одиночку. И не вернулась прежней"
 subject: "Юля"
 tags: ["Путешествия", "Жизнь"]
-cover: "/images/covers/julia-travel.jpg"
+cover: "/images/covers/julia-travel.svg"
 featured: false
 date: "2026-03-10"
 ---

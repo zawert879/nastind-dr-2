@@ -2,7 +2,7 @@
 title: "Катя строит карьеру так, как другие строят замки"
 subject: "Катя"
 tags: ["Карьера", "Деньги"]
-cover: "/images/covers/kate-career.jpg"
+cover: "/images/covers/kate-career.svg"
 featured: false
 date: "2026-03-20"
 ---
