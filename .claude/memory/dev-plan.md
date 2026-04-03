@@ -6,7 +6,7 @@
 
 ## Текущий фокус
 
-Фаза 2а завершена. Следующий шаг — Фаза 2б: страница статьи (ArticleContent + CommentSection + RelatedArticles).
+Фаза 2б завершена. Следующий шаг — Фаза 3: Полировка (обработка ошибок, адаптив, a11y, оптимизация).
 
 ---
 
@@ -43,11 +43,11 @@
 - [x] `src/lib/components/TagFilter.svelte` — фильтр-чипы по тегам, синхронизация с URL `?tag=`
 - [x] `src/routes/+page.svelte` — сборка: HeroBanner + TagFilter + сетка ArticleCard
 
-#### 2б — Страница статьи
-- [ ] `src/routes/articles/[slug]/+page.svelte`
-- [ ] `src/lib/components/ArticleContent.svelte` — рендер MD-контента
-- [ ] `src/lib/components/CommentSection.svelte` — статичные комментарии
-- [ ] `src/lib/components/RelatedArticles.svelte` — похожие статьи (рандом)
+#### 2б — Страница статьи ✅
+- [x] `src/routes/articles/[slug]/+page.svelte`
+- [x] `src/lib/components/ArticleContent.svelte` — рендер MD-контента
+- [x] `src/lib/components/CommentSection.svelte` — статичные комментарии
+- [x] `src/lib/components/RelatedArticles.svelte` — похожие статьи (рандом)
 
 ### Фаза 3 — Полировка
 - [ ] Обработка ошибок и пустых состояний
@@ -59,16 +59,14 @@
 
 ## Текущий спринт
 
-**Спринт**: 4  
-**Цель**: Фаза 2б — Страница статьи (ArticleContent + CommentSection + RelatedArticles)  
-**Дедлайн**: —
+### Спринт 4 — завершён ✅
 
 | Задача | Статус | Заметки |
 |---|---|---|
-| `src/routes/articles/[slug]/+page.svelte` | [ ] | страница статьи |
-| `ArticleContent.svelte` — рендер MD-контента | [ ] | `src/lib/components/` |
-| `CommentSection.svelte` — статичные комментарии | [ ] | `src/lib/components/` |
-| `RelatedArticles.svelte` — похожие статьи (рандом) | [ ] | `src/lib/components/` |
+| `src/routes/articles/[slug]/+page.svelte` | [x] | страница статьи |
+| `ArticleContent.svelte` — рендер MD-контента | [x] | `src/lib/components/` |
+| `CommentSection.svelte` — статичные комментарии | [x] | `src/lib/components/` |
+| `RelatedArticles.svelte` — похожие статьи (рандом) | [x] | `src/lib/components/` |
 
 ### Спринт 3 — завершён ✅
 

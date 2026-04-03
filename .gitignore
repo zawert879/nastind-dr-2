@@ -10,3 +10,4 @@ dist/
 Thumbs.db
 .playwright-mcp
 screenshots/
+*.png
