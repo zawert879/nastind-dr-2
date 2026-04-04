@@ -12,7 +12,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  administration: write
 
 # Только один деплой одновременно; новый запуск отменяет предыдущий в очереди
 concurrency:
