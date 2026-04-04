@@ -41,9 +41,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          # Если репо деплоится в поддиректорию (не user.github.io),
-          # раскомментируй и задай имя репо:
-          # BASE_PATH: '/<repo-name>'
+          BASE_PATH: '/nastind-dr-2'
           NODE_ENV: production
 
       - name: Configure Pages

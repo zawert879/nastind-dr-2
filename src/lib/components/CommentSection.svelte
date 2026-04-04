@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import type { Comment } from '$lib/types/Comment';
 	import { formatDate } from '$lib/utils/formatDate';
 
@@ -63,7 +64,7 @@
 							<div class="avatar-wrapper flex-shrink-0">
 								{#if !avatarErrors[avatarKey(comment)]}
 									<img
-										src={comment.avatar}
+										src="{base}{comment.avatar}"
 										alt="{comment.author}"
 										class="h-10 w-10 rounded-full object-cover md:h-11 md:w-11"
 										loading="lazy"

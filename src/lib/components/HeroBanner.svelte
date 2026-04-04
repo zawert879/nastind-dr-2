@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import type { ArticleMeta } from '$lib/types/Article';
 	import { formatDate } from '$lib/utils/formatDate';
 
@@ -13,7 +14,7 @@
 	<!-- Background image — decorative, aria-hidden -->
 	<div class="absolute inset-0" aria-hidden="true">
 		<img
-			src={article.cover}
+			src="{base}{article.cover}"
 			alt=""
 			class="h-full w-full object-cover"
 			fetchpriority="high"
@@ -67,7 +68,7 @@
 					<div class="flex flex-wrap gap-2" aria-label="Теги">
 						{#each article.tags as tag}
 							<a
-								href="/?tag={encodeURIComponent(tag)}"
+								href="{base}/?tag={encodeURIComponent(tag)}"
 								class="hero-tag rounded-full px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-white transition-opacity hover:opacity-80"
 								aria-label="Показать статьи по тегу {tag}"
 							>
@@ -80,7 +81,7 @@
 
 			<!-- CTA button -->
 			<a
-				href="/articles/{article.slug}"
+				href="{base}/articles/{article.slug}"
 				class="cta-btn mt-6 inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold uppercase tracking-widest text-white transition-opacity hover:opacity-90"
 				aria-label="Читать статью «{article.title}»"
 			>

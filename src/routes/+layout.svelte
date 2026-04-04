@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '../app.css';
+	import { base } from '$app/paths';
 	import type { Snippet } from 'svelte';
 
 	interface Props {
@@ -30,7 +31,7 @@
 	<header class="sticky top-0 z-50 border-b border-white/10 bg-[#0a0a0a]/90 backdrop-blur-md">
 		<div class="mx-auto max-w-6xl px-4 py-4">
 			<div class="flex items-center justify-between">
-				<a href="/" class="flex flex-col gap-0.5">
+				<a href="{base}/" class="flex flex-col gap-0.5">
 					<span
 						class="gradient-text font-serif text-2xl font-black tracking-tight md:text-3xl"
 					>
@@ -43,19 +44,19 @@
 
 				<nav class="hidden items-center gap-6 md:flex" aria-label="Основная навигация">
 					<a
-						href="/"
+						href="{base}/"
 						class="text-sm font-medium text-white/60 transition-colors hover:text-white"
 					>
 						Выпуски
 					</a>
 					<a
-						href="/?tag=Стиль"
+						href="{base}/?tag=Стиль"
 						class="text-sm font-medium text-white/60 transition-colors hover:text-white"
 					>
 						Стиль
 					</a>
 					<a
-						href="/?tag=Карьера"
+						href="{base}/?tag=Карьера"
 						class="text-sm font-medium text-white/60 transition-colors hover:text-white"
 					>
 						Карьера
@@ -86,21 +87,21 @@
 			<div id="mobile-nav" class="md:hidden border-t border-white/10 bg-[#0a0a0a]/95 backdrop-blur-md">
 				<nav class="mx-auto max-w-6xl px-4 py-4 flex flex-col gap-1" aria-label="Мобильная навигация">
 					<a
-						href="/"
+						href="{base}/"
 						onclick={closeMenu}
 						class="px-3 py-3 text-sm font-medium text-white/60 transition-colors hover:text-white hover:bg-white/5 rounded-md"
 					>
 						Выпуски
 					</a>
 					<a
-						href="/?tag=Стиль"
+						href="{base}/?tag=Стиль"
 						onclick={closeMenu}
 						class="px-3 py-3 text-sm font-medium text-white/60 transition-colors hover:text-white hover:bg-white/5 rounded-md"
 					>
 						Стиль
 					</a>
 					<a
-						href="/?tag=Карьера"
+						href="{base}/?tag=Карьера"
 						onclick={closeMenu}
 						class="px-3 py-3 text-sm font-medium text-white/60 transition-colors hover:text-white hover:bg-white/5 rounded-md"
 					>

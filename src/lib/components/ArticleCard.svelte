@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import type { ArticleMeta } from '$lib/types/Article';
 	import { formatDate } from '$lib/utils/formatDate';
 
@@ -10,7 +11,7 @@
 </script>
 
 <a
-	href="/articles/{article.slug}"
+	href="{base}/articles/{article.slug}"
 	class="group block"
 	aria-label="{article.title} — {article.subject}"
 >
@@ -18,7 +19,7 @@
 		<!-- Cover image -->
 		<div class="relative aspect-[3/2] overflow-hidden">
 			<img
-				src={article.cover}
+				src="{base}{article.cover}"
 				alt=""
 				class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
 				loading="lazy"

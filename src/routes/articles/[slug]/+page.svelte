@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 	import { articles } from '$lib/stores/articlesStore';
 	import { parseComments } from '$lib/utils/parseContent';
 	import { formatDate } from '$lib/utils/formatDate';
@@ -95,7 +96,7 @@
 			Возможно, статья была удалена или адрес указан неверно.
 		</p>
 		<a
-			href="/"
+			href="{base}/"
 			class="back-btn inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold uppercase tracking-widest text-white transition-opacity hover:opacity-90"
 		>
 			<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -110,7 +111,7 @@
 	<section class="article-hero relative w-full overflow-hidden" aria-label="Обложка статьи">
 		<div class="absolute inset-0" aria-hidden="true">
 			<img
-				src={article.cover}
+				src="{base}{article.cover}"
 				alt=""
 				class="h-full w-full object-cover"
 				fetchpriority="high"
@@ -124,7 +125,7 @@
 		<!-- Back link -->
 		<div class="relative z-10 px-6 pt-8 md:px-12 md:pt-10">
 			<a
-				href="/"
+				href="{base}/"
 				class="back-link inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest transition-opacity hover:opacity-80"
 				style="color: var(--color-text-muted);"
 				aria-label="Вернуться ко всем статьям"
@@ -164,7 +165,7 @@
 						<div class="flex flex-wrap gap-2" aria-label="Теги статьи">
 							{#each article.tags as tag}
 								<a
-									href="/?tag={encodeURIComponent(tag)}"
+									href="{base}/?tag={encodeURIComponent(tag)}"
 									class="hero-tag rounded-full px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-white transition-opacity hover:opacity-80"
 									aria-label="Показать статьи по тегу {tag}"
 								>
