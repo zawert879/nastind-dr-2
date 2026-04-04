@@ -2,7 +2,7 @@
 title: "Игорь Рожков: гений, скандал и вечный вопрос «откуда деньги?»"
 subject: "Игорь Рожков"
 tags: ["Карьера", "Скандалы", "Стиль"]
-cover: "/images/covers/igor.jpg"
+cover: "/images/covers/igor.png"
 featured: true
 date: "2026-04-01"
 ---

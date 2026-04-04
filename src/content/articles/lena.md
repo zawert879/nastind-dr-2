@@ -2,7 +2,7 @@
 title: "Елена Лозицкая: две жизни, один характер и кот на подоконнике"
 subject: "Елена Лозицкая"
 tags: ["Карьера", "Путешествия", "Стиль"]
-cover: "/images/covers/lena.jpg"
+cover: "/images/covers/lena.png"
 featured: false
 date: "2026-03-25"
 ---

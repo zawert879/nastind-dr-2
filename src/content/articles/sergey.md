@@ -2,7 +2,7 @@
 title: "Сергей. Просто Сергей."
 subject: "Сергей"
 tags: ["Бизнес", "Личность"]
-cover: "/images/covers/sergey.jpg"
+cover: "/images/covers/sergey.png"
 featured: false
 date: "2026-03-20"
 ---

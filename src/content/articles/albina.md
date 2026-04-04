@@ -2,7 +2,7 @@
 title: "Альбина Дорманчук: женщина, которая считает всё — и ничего не теряет"
 subject: "Альбина Дорманчук"
 tags: ["Бизнес", "Стиль", "Личность"]
-cover: "/images/covers/albina.jpg"
+cover: "/images/covers/albina.png"
 featured: false
 date: "2026-03-28"
 ---

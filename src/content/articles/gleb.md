@@ -2,7 +2,7 @@
 title: "Глеб Мантулов: скорость, высота и одно единственное «да»"
 subject: "Глеб Мантулов"
 tags: ["Карьера", "Стиль"]
-cover: "/images/covers/gleb.jpg"
+cover: "/images/covers/gleb.png"
 featured: false
 date: "2026-03-30"
 ---
