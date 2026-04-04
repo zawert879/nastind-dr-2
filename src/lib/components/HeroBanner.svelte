@@ -16,7 +16,7 @@
 		<img
 			src="{base}{article.cover}"
 			alt=""
-			class="h-full w-full object-cover"
+			class="h-full w-full object-cover object-top"
 			fetchpriority="high"
 			decoding="async"
 		/>
