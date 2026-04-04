@@ -6,7 +6,7 @@
 
 ## Текущий фокус
 
-Фаза 2б завершена. Следующий шаг — Фаза 3: Полировка (обработка ошибок, адаптив, a11y, оптимизация).
+Фаза 3 завершена. Все задачи полировки выполнены.
 
 ---
 
@@ -49,11 +49,11 @@
 - [x] `src/lib/components/CommentSection.svelte` — статичные комментарии
 - [x] `src/lib/components/RelatedArticles.svelte` — похожие статьи (рандом)
 
-### Фаза 3 — Полировка
-- [ ] Обработка ошибок и пустых состояний
-- [ ] Адаптив (mobile-first)
-- [ ] Оптимизация производительности
-- [ ] Accessibility (a11y)
+### Фаза 3 — Полировка ✅
+- [x] Обработка ошибок и пустых состояний
+- [x] Адаптив (mobile-first)
+- [x] Оптимизация производительности
+- [x] Accessibility (a11y)
 
 ---
 
@@ -77,6 +77,19 @@
 | `HeroBanner.svelte` — hero featured-статьи | [x] | `src/lib/components/` |
 | `TagFilter.svelte` — фильтр-чипы, синхронизация с URL | [x] | `src/lib/components/` |
 | `+page.svelte` — сборка главной страницы | [x] | `src/routes/` |
+
+---
+
+### Спринт 5 — завершён ✅ (исправления по код-ревью)
+
+| Задача | Статус | Заметки |
+|---|---|---|
+| Вынести `formatDate` в утилиту | [x] | `src/lib/utils/formatDate.ts`, заменено в 4 файлах |
+| Добавить `<h1>` на главную страницу | [x] | `.sr-only` в `src/routes/+page.svelte` |
+| Исправить `aria-controls` на бургере | [x] | `id="mobile-nav"` + `aria-controls` в `+layout.svelte` |
+| Убрать эмодзи из `CommentSection.svelte` | [x] | Заменено на SVG-иконку |
+| Заменить `get(articles)` на `$articles` | [x] | `src/routes/articles/[slug]/+page.svelte` |
+| Безопасные настройки marked | [x] | `marked.use({ breaks: false })` + `{ async: false }` |
 
 ---
 
