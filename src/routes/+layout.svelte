@@ -24,6 +24,8 @@
 	<meta name="description" content="Модные Сучки — глянцевый журнал для избранных" />
 </svelte:head>
 
+<a href="#main-content" class="skip-nav">Перейти к основному содержимому</a>
+
 <div class="flex min-h-screen flex-col bg-[#0a0a0a] text-[#f5f5f5]">
 	<header class="sticky top-0 z-50 border-b border-white/10 bg-[#0a0a0a]/90 backdrop-blur-md">
 		<div class="mx-auto max-w-6xl px-4 py-4">
@@ -39,7 +41,7 @@
 					</span>
 				</a>
 
-				<nav class="hidden items-center gap-6 md:flex">
+				<nav class="hidden items-center gap-6 md:flex" aria-label="Основная навигация">
 					<a
 						href="/"
 						class="text-sm font-medium text-white/60 transition-colors hover:text-white"
@@ -65,6 +67,7 @@
 					class="flex md:hidden flex-col items-center justify-center gap-1.5 p-2 text-white/60 hover:text-white transition-colors"
 					aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'}
 					aria-expanded={menuOpen}
+					aria-controls="mobile-nav"
 				>
 					{#if menuOpen}
 						<span class="block h-0.5 w-5 rotate-45 translate-y-2 bg-current transition-transform"></span>
@@ -80,8 +83,8 @@
 		</div>
 
 		{#if menuOpen}
-			<div class="md:hidden border-t border-white/10 bg-[#0a0a0a]/95 backdrop-blur-md">
-				<nav class="mx-auto max-w-6xl px-4 py-4 flex flex-col gap-1">
+			<div id="mobile-nav" class="md:hidden border-t border-white/10 bg-[#0a0a0a]/95 backdrop-blur-md">
+				<nav class="mx-auto max-w-6xl px-4 py-4 flex flex-col gap-1" aria-label="Мобильная навигация">
 					<a
 						href="/"
 						onclick={closeMenu}
@@ -110,7 +113,7 @@
 		<div class="accent-line"></div>
 	</header>
 
-	<main class="flex-1">
+	<main id="main-content" class="flex-1" tabindex="-1">
 		{@render children()}
 	</main>
 

@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Skip navigation link for a11y */
+.skip-nav {
+	position: absolute;
+	top: -100%;
+	left: 0;
+	z-index: 9999;
+	padding: 0.75rem 1.5rem;
+	background: var(--gradient-accent-h);
+	color: #fff;
+	font-weight: 700;
+	font-size: 0.875rem;
+	text-decoration: none;
+	border-radius: 0 0 8px 0;
+	transition: top 0.2s;
+}
+.skip-nav:focus {
+	top: 0;
+}
+
 /* Dark Editorial — CSS Variables */
 :root {
 	/* Backgrounds */
@@ -44,6 +63,15 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		font-family: var(--font-serif);
+	}
+}
+
+/* Focus visible styles — a11y */
+@layer base {
+	:focus-visible {
+		outline: 2px solid var(--color-hot-pink);
+		outline-offset: 2px;
+		border-radius: 4px;
 	}
 }
 

@@ -1,29 +1,23 @@
 <script lang="ts">
 	import type { ArticleMeta } from '$lib/types/Article';
+	import { formatDate } from '$lib/utils/formatDate';
 
 	interface Props {
 		article: ArticleMeta;
 	}
 
 	const { article }: Props = $props();
-
-	function formatDate(dateStr: string): string {
-		const date = new Date(dateStr);
-		return date.toLocaleDateString('ru-RU', {
-			day: 'numeric',
-			month: 'long',
-			year: 'numeric',
-		});
-	}
 </script>
 
-<section class="hero-section relative w-full overflow-hidden">
-	<!-- Background image -->
-	<div class="absolute inset-0">
+<section class="hero-section relative w-full overflow-hidden" aria-label="Героиня номера: {article.subject}">
+	<!-- Background image — decorative, aria-hidden -->
+	<div class="absolute inset-0" aria-hidden="true">
 		<img
 			src={article.cover}
-			alt={article.title}
+			alt=""
 			class="h-full w-full object-cover"
+			fetchpriority="high"
+			decoding="async"
 		/>
 		<!-- Dark overlay -->
 		<div class="absolute inset-0 bg-[#0a0a0a]/60"></div>
@@ -34,7 +28,7 @@
 	</div>
 
 	<!-- Issue badge -->
-	<div class="relative z-10 flex items-start justify-between px-6 pt-8 md:px-12 md:pt-12">
+	<div class="relative z-10 flex items-start justify-between px-6 pt-8 md:px-12 md:pt-12" aria-hidden="true">
 		<div class="flex flex-col gap-1">
 			<span class="text-[10px] font-semibold uppercase tracking-[0.3em]" style="color: var(--color-gold);">
 				Выпуск апрель 2026
@@ -55,22 +49,27 @@
 			</p>
 
 			<!-- Title -->
-			<h1 class="font-serif text-3xl font-black leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+			<h2 class="font-serif text-3xl font-black leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
 				{article.title}
-			</h1>
+			</h2>
 
 			<!-- Meta row -->
 			<div class="mt-5 flex flex-wrap items-center gap-4">
-				<span class="text-xs" style="color: var(--color-text-muted);">
+				<time
+					datetime={article.date}
+					class="text-xs"
+					style="color: var(--color-text-muted);"
+				>
 					{formatDate(article.date)}
-				</span>
+				</time>
 
 				{#if article.tags.length > 0}
-					<div class="flex flex-wrap gap-2">
+					<div class="flex flex-wrap gap-2" aria-label="Теги">
 						{#each article.tags as tag}
 							<a
 								href="/?tag={encodeURIComponent(tag)}"
 								class="hero-tag rounded-full px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-white transition-opacity hover:opacity-80"
+								aria-label="Показать статьи по тегу {tag}"
 							>
 								{tag}
 							</a>
@@ -83,6 +82,7 @@
 			<a
 				href="/articles/{article.slug}"
 				class="cta-btn mt-6 inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold uppercase tracking-widest text-white transition-opacity hover:opacity-90"
+				aria-label="Читать статью «{article.title}»"
 			>
 				Читать статью
 				<svg

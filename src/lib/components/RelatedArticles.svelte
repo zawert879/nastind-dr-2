@@ -10,18 +10,23 @@
 </script>
 
 {#if articles.length > 0}
-	<section class="related-section">
+	<section aria-label="Похожие статьи">
 		<div class="mb-6 flex items-center gap-4">
-			<h2 class="font-serif text-2xl font-bold text-white">
+			<h2 class="font-serif text-2xl font-bold text-white" id="related-heading">
 				Похожие статьи
 			</h2>
-			<div class="accent-line flex-1"></div>
+			<div class="accent-line flex-1" aria-hidden="true"></div>
 		</div>
 
-		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+		<ul
+			class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+			aria-labelledby="related-heading"
+		>
 			{#each articles as article (article.slug)}
-				<ArticleCard {article} />
+				<li>
+					<ArticleCard {article} />
+				</li>
 			{/each}
-		</div>
+		</ul>
 	</section>
 {/if}

@@ -17,6 +17,9 @@
 		color: var(--color-text);
 		line-height: 1.8;
 		max-width: 65ch;
+		/* Prevent long words / URLs from breaking layout on mobile */
+		overflow-wrap: break-word;
+		word-break: break-word;
 	}
 
 	/* Headings */
@@ -35,13 +38,13 @@
 	}
 
 	.article-body :global(h2) {
-		font-size: 1.6rem;
+		font-size: clamp(1.25rem, 4vw, 1.6rem);
 		padding-bottom: 0.3em;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 	}
 
 	.article-body :global(h3) {
-		font-size: 1.25rem;
+		font-size: clamp(1.1rem, 3vw, 1.25rem);
 	}
 
 	/* Paragraphs */
@@ -68,7 +71,7 @@
 		background: rgba(255, 0, 110, 0.06);
 		border-radius: 0 8px 8px 0;
 		font-family: var(--font-serif);
-		font-size: 1.1rem;
+		font-size: clamp(1rem, 3vw, 1.1rem);
 		font-style: italic;
 		color: rgba(245, 245, 245, 0.9);
 	}
@@ -97,7 +100,7 @@
 		font-weight: 700;
 	}
 
-	/* Table */
+	/* Table — wrapped in overflow container for mobile */
 	.article-body :global(table) {
 		width: 100%;
 		border-collapse: collapse;
@@ -105,6 +108,9 @@
 		font-size: 0.9rem;
 		overflow: hidden;
 		border-radius: 8px;
+		display: block;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
 	}
 
 	.article-body :global(thead tr) {
@@ -120,6 +126,7 @@
 		font-size: 0.78rem;
 		color: var(--color-hot-pink);
 		border-bottom: 1px solid rgba(255, 0, 110, 0.3);
+		white-space: nowrap;
 	}
 
 	.article-body :global(td) {
@@ -158,9 +165,16 @@
 		color: var(--color-purple);
 	}
 
+	.article-body :global(a:focus-visible) {
+		outline: 2px solid var(--color-hot-pink);
+		outline-offset: 2px;
+		border-radius: 2px;
+	}
+
 	/* Images */
 	.article-body :global(img) {
 		max-width: 100%;
+		height: auto;
 		border-radius: 8px;
 		margin: 1.5em 0;
 	}

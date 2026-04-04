@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { get } from 'svelte/store';
 	import { page } from '$app/stores';
 	import { articles } from '$lib/stores/articlesStore';
 	import { parseComments } from '$lib/utils/parseContent';
+	import { formatDate } from '$lib/utils/formatDate';
 	import ArticleContent from '$lib/components/ArticleContent.svelte';
 	import CommentSection from '$lib/components/CommentSection.svelte';
 	import RelatedArticles from '$lib/components/RelatedArticles.svelte';
@@ -50,18 +50,9 @@
 		return parseComments(raw).comments;
 	}
 
-	function formatDate(dateStr: string): string {
-		const date = new Date(dateStr);
-		return date.toLocaleDateString('ru-RU', {
-			day: 'numeric',
-			month: 'long',
-			year: 'numeric',
-		});
-	}
-
 	$effect(() => {
 		const slug = $page.params.slug ?? '';
-		const all = get(articles);
+		const all = $articles;
 		const found = all.find((a) => a.slug === slug) ?? null;
 
 		if (!found) {
@@ -83,13 +74,20 @@
 		<meta name="description" content="{article.subject} — {article.title}" />
 	{:else if notFound}
 		<title>Статья не найдена — Модные Сучки</title>
+		<meta name="description" content="Запрошенная статья не найдена" />
+	{:else}
+		<title>Загрузка... — Модные Сучки</title>
 	{/if}
 </svelte:head>
 
 {#if notFound}
 	<!-- 404 state -->
-	<div class="flex min-h-[60vh] flex-col items-center justify-center gap-6 px-4 text-center">
-		<p class="gradient-text font-serif text-6xl font-black md:text-8xl">404</p>
+	<div
+		class="flex min-h-[60vh] flex-col items-center justify-center gap-6 px-4 text-center"
+		role="main"
+		aria-label="Страница не найдена"
+	>
+		<p class="gradient-text font-serif text-6xl font-black md:text-8xl" aria-hidden="true">404</p>
 		<h1 class="font-serif text-2xl font-bold text-white md:text-3xl">
 			Статья не найдена
 		</h1>
@@ -109,12 +107,14 @@
 
 {:else if article}
 	<!-- Hero cover -->
-	<section class="article-hero relative w-full overflow-hidden">
-		<div class="absolute inset-0">
+	<section class="article-hero relative w-full overflow-hidden" aria-label="Обложка статьи">
+		<div class="absolute inset-0" aria-hidden="true">
 			<img
 				src={article.cover}
-				alt={article.title}
+				alt=""
 				class="h-full w-full object-cover"
+				fetchpriority="high"
+				decoding="async"
 			/>
 			<div class="absolute inset-0 bg-[#0a0a0a]/55"></div>
 			<div class="absolute inset-0" style="background: var(--gradient-overlay);"></div>
@@ -127,6 +127,7 @@
 				href="/"
 				class="back-link inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest transition-opacity hover:opacity-80"
 				style="color: var(--color-text-muted);"
+				aria-label="Вернуться ко всем статьям"
 			>
 				<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 					<path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
@@ -159,12 +160,13 @@
 					</time>
 
 					{#if article.tags.length > 0}
-						<span class="text-xs" style="color: var(--color-text-muted);">·</span>
-						<div class="flex flex-wrap gap-2">
+						<span class="text-xs" style="color: var(--color-text-muted);" aria-hidden="true">·</span>
+						<div class="flex flex-wrap gap-2" aria-label="Теги статьи">
 							{#each article.tags as tag}
 								<a
 									href="/?tag={encodeURIComponent(tag)}"
 									class="hero-tag rounded-full px-3 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-white transition-opacity hover:opacity-80"
+									aria-label="Показать статьи по тегу {tag}"
 								>
 									{tag}
 								</a>
@@ -184,23 +186,23 @@
 		</div>
 
 		<!-- Divider -->
-		<div class="accent-line mb-14 md:mb-16"></div>
+		<div class="accent-line mb-14 md:mb-16" aria-hidden="true"></div>
 
 		<!-- Comments -->
 		<div class="mb-14 md:mb-16">
 			<CommentSection {comments} />
 		</div>
 
-		<!-- Divider -->
+		<!-- Related articles -->
 		{#if relatedArticles.length > 0}
-			<div class="accent-line mb-14 md:mb-16"></div>
+			<div class="accent-line mb-14 md:mb-16" aria-hidden="true"></div>
 			<RelatedArticles articles={relatedArticles} />
 		{/if}
 	</div>
 
 {:else}
 	<!-- Loading skeleton -->
-	<div class="article-skeleton">
+	<div class="article-skeleton" aria-label="Загрузка статьи" aria-busy="true" role="status">
 		<div class="skeleton-hero animate-pulse bg-white/5"></div>
 		<div class="mx-auto max-w-3xl px-4 py-10">
 			<div class="mb-4 h-5 w-3/4 animate-pulse rounded bg-white/5"></div>

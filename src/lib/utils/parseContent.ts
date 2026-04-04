@@ -3,10 +3,13 @@ import { marked } from 'marked';
 import type { Article } from '$lib/types/Article';
 import type { CommentFile } from '$lib/types/Comment';
 
+// Явно отключаем вставку raw HTML из MD-файлов (защита от XSS)
+marked.use({ breaks: false });
+
 export function parseArticle(raw: string, slug: string): Article {
 	const { attributes, body } = fm<Record<string, unknown>>(raw);
 
-	const html = marked.parse(body);
+	const html = marked.parse(body, { async: false });
 
 	return {
 		slug,

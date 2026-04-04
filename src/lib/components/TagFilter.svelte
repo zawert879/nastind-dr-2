@@ -28,7 +28,11 @@
 	const activeTag = $derived($page.url.searchParams.get('tag') || null);
 </script>
 
-<div class="flex flex-wrap items-center gap-2" role="group" aria-label="Фильтр по тегам">
+<div
+	class="filter-scroll flex items-center gap-2 overflow-x-auto pb-1"
+	role="group"
+	aria-label="Фильтр статей по тегам"
+>
 	<button
 		onclick={() => selectTag(null)}
 		class="filter-chip {activeTag === null ? 'filter-chip--active' : ''}"
@@ -49,6 +53,15 @@
 </div>
 
 <style>
+	.filter-scroll {
+		/* Hide scrollbar on mobile but allow scroll */
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+	.filter-scroll::-webkit-scrollbar {
+		display: none;
+	}
+
 	.filter-chip {
 		border-radius: 9999px;
 		padding: 0.375rem 1rem;
@@ -62,12 +75,18 @@
 		transition: all 0.2s ease;
 		cursor: pointer;
 		white-space: nowrap;
+		flex-shrink: 0;
 	}
 
 	.filter-chip:hover {
 		color: #f5f5f5;
 		background: rgba(255, 255, 255, 0.1);
 		border-color: rgba(255, 255, 255, 0.2);
+	}
+
+	.filter-chip:focus-visible {
+		outline: 2px solid var(--color-hot-pink);
+		outline-offset: 2px;
 	}
 
 	.filter-chip--active {
