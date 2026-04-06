@@ -3,7 +3,7 @@ title: "Игорь Рожков: гений, скандал и вечный во
 subject: "Игорь Рожков"
 tags: ["Карьера", "Скандалы", "Стиль"]
 cover: "/images/covers/igor.png"
-featured: true
+featured: false
 date: "2026-04-01"
 ---
 
