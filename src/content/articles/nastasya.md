@@ -2,7 +2,7 @@
 title: "Настасья Рожкова: русалка, которая правит берегом"
 subject: "Настасья Рожкова"
 tags: ["Стиль", "Путешествия"]
-cover: "/images/covers/nastasya.png"
+cover: "/images/covers/nastya.png"
 featured: false
 date: "2026-04-06"
 ---
