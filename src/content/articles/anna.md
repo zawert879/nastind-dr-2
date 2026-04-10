@@ -2,7 +2,7 @@
 title: "Анна Богатов"
 subject: "Анна Богатов"
 tags: ["Карьера", "Стиль"]
-cover: "/images/covers/daniil.png"
+cover: "/images/covers/anna.png"
 featured: false
 date: "2026-04-04"
 ---

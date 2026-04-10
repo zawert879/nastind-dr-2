@@ -2,7 +2,7 @@
 title: "Влад Богатов"
 subject: "Влад Богатов"
 tags: ["Карьера", "Стиль"]
-cover: "/images/covers/daniil.png"
+cover: "/images/covers/vlad.png"
 featured: false
 date: "2026-04-04"
 ---
